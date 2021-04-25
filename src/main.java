@@ -22,43 +22,18 @@ public class main {
 
     }
 
-    private static boolean isValidNumbers(int num1Andnum2, int num4, int numberChosen) {
 
-        if(num1Andnum2 + num4 == 21 && num4 < numberChosen ){
-            return true;
+    private static int readNumber() {
+        Scanner sc = new Scanner(System.in);
+        int numChosen = 0;
+
+        do{
+            System.out.println("Digite um numero de 5 a 9");
+            numChosen = sc.nextInt();
         }
-        return false;
-    }
+        while(numChosen < 5 || numChosen > 9);
 
-    private static int getThirdNumber(int[] firstAndSecondNumber) {
-        int thirdNumber = 0;
-        if(firstAndSecondNumber.length <= 2){
-            return thirdNumber;
-        } else return firstAndSecondNumber[2];
-    }
-
-    private static void printLastNumber(int number4) {
-        System.out.println(number4);
-    }
-
-    private static int getLastNumber(int[] firstAndSecondNumber) {
-        int sumValuesFirstNumbers = sumValuesOfArray(firstAndSecondNumber);
-        return (21 - sumValuesFirstNumbers);
-    }
-
-    private static int sumValuesOfArray(int[] firstAndSecondNumber) {
-        int sum = 0;
-        for(int i = 0; i < firstAndSecondNumber.length; i++){
-            sum = sum +  firstAndSecondNumber[i];
-        }
-
-        return sum;
-    }
-
-    private static void printThirdNumber(Integer thirdNumber, int numberChosen) {
-        if(thirdNumber != numberChosen) {
-            System.out.print(thirdNumber + " ");
-        }
+        return numChosen;
     }
 
     private static int[] getFirstAndSecoundNumber(int numberChosen) {
@@ -79,6 +54,26 @@ public class main {
         return numbers;
     }
 
+    private static int getThirdNumber(int[] firstAndSecondNumber) {
+        int thirdNumber = 0;
+        if(firstAndSecondNumber.length <= 2){
+            return thirdNumber;
+        } else return firstAndSecondNumber[2];
+    }
+
+    private static int getLastNumber(int[] firstAndSecondNumber) {
+        int sumValuesFirstNumbers = sumValuesOfArray(firstAndSecondNumber);
+        return (21 - sumValuesFirstNumbers);
+    }
+
+    private static boolean isValidNumbers(int num1Andnum2, int num4, int numberChosen) {
+
+        if(num1Andnum2 + num4 == 21 && num4 < numberChosen ){
+            return true;
+        }
+        return false;
+    }
+
     private static void printFirstAndSecondNumber(int[] firstNumbers) {
 
         for(int i = 0; i < firstNumbers.length; i++){
@@ -87,16 +82,22 @@ public class main {
 
     }
 
-    private static int readNumber() {
-        Scanner sc = new Scanner(System.in);
-        int numChosen = 0;
+    private static void printLastNumber(int number4) {
+        System.out.println(number4);
+    }
 
-        do{
-            System.out.println("Digite um numero de 5 a 9");
-            numChosen = sc.nextInt();
+    private static void printThirdNumber(Integer thirdNumber, int numberChosen) {
+        if(thirdNumber != numberChosen) {
+            System.out.print(thirdNumber + " ");
         }
-        while(numChosen < 5 || numChosen > 9);
+    }
 
-        return numChosen;
+    private static int sumValuesOfArray(int[] firstAndSecondNumber) {
+        int sum = 0;
+        for(int i = 0; i < firstAndSecondNumber.length; i++){
+            sum = sum +  firstAndSecondNumber[i];
+        }
+
+        return sum;
     }
 }
